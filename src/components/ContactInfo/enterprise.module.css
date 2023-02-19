@@ -1,0 +1,39 @@
+
+ul, li {
+    list-style: none;
+}
+.action__button{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    border-color: black;
+    justify-content: space-between;
+    padding: 1rem 0.3rem 1rem 0.3rem;
+    background-color: transparent;
+}
+.container__enterprise {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    width: 100%;
+    padding: 0.5rem;
+}
+.container__otherEnterprises{
+    width: 100%;
+    border-top: 2px solid rgba(0, 0, 0, 0.733) ;
+}
+.info_enterprise {
+    background-color: #E7E6E2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info_enterprise__icons{
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem;
+    gap: 1rem;
+    border-top: 2px solid rgba(0, 0, 0, 0.733);
+}
