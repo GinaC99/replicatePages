@@ -1,3 +1,4 @@
+import { useContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -5,19 +6,19 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import infImgs from '../../api/imgs'
-import { useContext, useEffect, useState } from "react";
 import style from './products.module.css'
 import { ProductContext } from '../../context/product-contex';
 
 const EachProduct = ({ lowLimit, higLimit, title }) => {
     const [limitInf, setLimitInf] = useState(0)
     const [limitSup, setLimitSup] = useState(4)
-    const { dataProduct, setDataProduct } = useContext(ProductContext)
+    const { dataProducts } = useContext(ProductContext)
+    
     useEffect(() => {
         setLimitInf(parseInt(lowLimit))
         setLimitSup(parseInt(higLimit))
     }, [lowLimit, higLimit])
-
+    // console.log(dataProducts);
     const showProducts = () => {
         
         return infImgs.map((objectInfo, index) => {
@@ -32,9 +33,9 @@ const EachProduct = ({ lowLimit, higLimit, title }) => {
             const {nombre, precio, referencia, foto} = objectInfo;
             if (index > limitInf && index <= limitSup) {
             return (
-                <Card sx={{ width: '22%' }} key={index} onClick={() => {
-                    setDataProduct(objectInfo)
-                }}>
+                <Card sx={{ width: '22%' }} key={index}
+                    //   onClick={() => setDataProduct(objectInfo)}
+                      >
                     <CardActionArea>
                     <CardMedia
                         component="img"
