@@ -1,27 +1,44 @@
 import style from './products.module.css'
 import EachProduct from './EachProduct';
 import { useContext, useEffect, useState } from 'react';
-// import { ProductContext } from '../../context/product-contex';
-
+import { ProductContext } from '../../context/product-contex';
+import { LoremIpsum } from 'react-lorem-ipsum';
 
 const Product = () => {
-    // const { dataProduct } = useContext(ProductContext);
+    const { dataProduct } = useContext(ProductContext);
     const [productInf, setProductInf] = useState({})
     
-    // useEffect(() => {
-    //     setProductInf(dataProduct)
-    // }, [dataProduct])
+    useEffect(() => {
+        console.log(dataProduct)
+        if (dataProduct && Object.keys(dataProduct).length > 0)
+            return setProductInf(dataProduct)
+    }, [dataProduct])
+    console.log(dataProduct)
 
     const showProduct = () => {
         return (
-        <>heegh
+        <>
         </>
         )
     }
     return (
         <div>
-            {Object.keys(productInf).length > 0 && showProduct()}
             <div className={style.showProductComponents}>
+                <div>
+                    {Object.keys(productInf).length > 0 && showProduct()}
+                </div>
+                    <div className={style.containerTitle}>
+                        <h3 className={style.genTitle}>DETALLES DEL PRODUCTO</h3>
+                    </div>
+                    <LoremIpsum p={1}/>
+                <div>
+                
+                </div>
+                <div>
+                    <div className={style.containerTitle}>
+                        <h3 className={style.genTitle}>TECNOLOGIAS</h3></div>
+                    <LoremIpsum p={1}/>
+                </div>
                 <EachProduct higLimit={8} lowLimit={4} title={'COMPLETA TU LOOK'}/>
                 <EachProduct higLimit={4} lowLimit={0} title={'PRODUCTOS RECOMENDADOS'}/>
             </div>

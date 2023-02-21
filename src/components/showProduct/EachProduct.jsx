@@ -12,13 +12,13 @@ import { ProductContext } from '../../context/product-contex';
 const EachProduct = ({ lowLimit, higLimit, title }) => {
     const [limitInf, setLimitInf] = useState(0)
     const [limitSup, setLimitSup] = useState(4)
-    const { dataProducts } = useContext(ProductContext)
-    
+    const { dataProducts, setDataProduct } = useContext(ProductContext)
+    console.log(dataProducts)
     useEffect(() => {
         setLimitInf(parseInt(lowLimit))
         setLimitSup(parseInt(higLimit))
     }, [lowLimit, higLimit])
-    // console.log(dataProducts);
+
     const showProducts = () => {
         
         return infImgs.map((objectInfo, index) => {
@@ -34,7 +34,10 @@ const EachProduct = ({ lowLimit, higLimit, title }) => {
             if (index > limitInf && index <= limitSup) {
             return (
                 <Card sx={{ width: '22%' }} key={index}
-                    //   onClick={() => setDataProduct(objectInfo)}
+                      onClick={() => {
+                        console.log(objectInfo)
+                        setDataProduct(objectInfo)
+                    }}
                       >
                     <CardActionArea>
                     <CardMedia
