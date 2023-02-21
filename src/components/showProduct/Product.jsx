@@ -1,19 +1,19 @@
 import style from './products.module.css'
 import EachProduct from './EachProduct';
 import { useContext, useEffect, useState } from 'react';
-import { ProductContext } from '../../context/product-contex';
+import { ProductContext } from './../../context/product-contex';
 import { LoremIpsum } from 'react-lorem-ipsum';
 
 const Product = () => {
-    const { dataProduct } = useContext(ProductContext);
+    const { dataProducts } = useContext(ProductContext);
     const [productInf, setProductInf] = useState({})
     
     useEffect(() => {
-        console.log(dataProduct)
-        if (dataProduct && Object.keys(dataProduct).length > 0)
-            return setProductInf(dataProduct)
-    }, [dataProduct])
-    console.log(dataProduct)
+        console.log(dataProducts)
+        if (dataProducts && Object.keys(dataProducts).length > 0)
+            return setProductInf(dataProducts)
+    }, [dataProducts])
+    console.log(dataProducts)
 
     const showProduct = () => {
         return (

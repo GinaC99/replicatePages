@@ -35,7 +35,6 @@ const EachProduct = ({ lowLimit, higLimit, title }) => {
             return (
                 <Card sx={{ width: '22%' }} key={index}
                       onClick={() => {
-                        console.log(objectInfo)
                         setDataProduct(objectInfo)
                     }}
                       >
