@@ -64,12 +64,6 @@ const allProducts = [{
     "referencia": "G40",
     "foto": require('../img/11.jpg')
 },
-// {
-//     "nombre": "Zapato azul2",
-//     "precio": 5000,
-//     "referencia": "G40",
-//     "foto": 
-// },
 {
     "nombre": "Zapato azul3",
     "precio": 5000,

@@ -2,7 +2,8 @@ import style from './products.module.css'
 import EachProduct from './EachProduct';
 import { useContext, useEffect, useState } from 'react';
 import { ProductContext } from './../../context/product-contex';
-import { LoremIpsum } from 'react-lorem-ipsum';
+import { LoremIpsum} from 'react-lorem-ipsum';
+import Typography from '@mui/material/Typography';
 
 const Product = () => {
     const { dataProducts } = useContext(ProductContext);
@@ -13,13 +14,53 @@ const Product = () => {
         if (dataProducts && Object.keys(dataProducts).length > 0)
             return setProductInf(dataProducts)
     }, [dataProducts])
-    console.log(dataProducts)
 
     const showProduct = () => {
-        return (
-        <>
-        </>
-        )
+        if (productInf) {
+            const { nombre, precio, referencia, foto } = productInf;
+            console.log(productInf)
+            return (
+                <div className={style.container__infProducts}>
+                    <div className={style.infoProducts__img_name}>
+                        <h5>HUSHPUPPIESCO / CALZADO / {nombre}</h5>
+                        <img src={foto} alt={'foto-calzado'} />
+                    </div>
+                    <div>
+                        <h3>{nombre}</h3>
+                        <Typography variant="body1" className={style.price__products__infProduct}>
+                        $ {precio}
+                        </Typography>
+                        <Typography variant="body1" className={style.infProduct__ref}>
+                        Cod. de productos {referencia}
+                        </Typography>
+                        <h5>COLOR</h5>
+                        <img src={foto} alt={'foto-calzado'} className={style.img_Productss}/>
+                        <h5>TALLA</h5>
+                        <div className={style.containerAllNumbers}>
+                            <div style={{ gap: '10px' }}>
+                                <div className={style.NumberShow} onClick={() => {
+                                    alert('Se encuentra disponible')
+                                }}>5</div>
+                                <div className={style.NumberShow}>5.5</div>
+                                <div className={style.NumberShow}>6</div>
+                                <div className={style.NumberShow}>6.5</div>
+                                <div className={style.NumberShow}>7</div>
+                            </div>
+                            <div style={{ gap: '10px' }}>
+                                <div className={style.NumberShow}>7.5</div>
+                                <div className={style.NumberShow}>8</div>
+                                <div className={style.NumberShow}>8.5</div>
+                                <div className={style.NumberShow}>9</div>
+                                <div className={style.NumberShow}>9.5</div>
+                            </div>
+                        </div>
+                        <h6>GUIA DE TALLAS</h6>
+                        <button>AÑADIR AL CARRITO</button>
+                        <button>icon</button>
+                    </div>
+                </div>
+            )
+        }
     }
     return (
         <div>
