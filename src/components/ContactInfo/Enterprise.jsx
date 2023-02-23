@@ -11,12 +11,12 @@ const Enterprise = () => {
         return Object.keys(enterpriseInfo).map((nameKey, index) => {
             const { title, data } = enterpriseInfo[nameKey]
             return (
-                <div style={{ margin: '1%'}} key={index}>
+                <div style={{ margin: '0px 20%'}} key={index}>
                     <li> 
-                        <h4>{title}</h4>
+                        <h4 style={{ color: '#333333' }}>{title}</h4>
                         {data.map((nameDescription, key) => {
                         return (
-                        <p key={index + key}>{nameDescription}</p>
+                        <p key={index + key} style={{ color:'#5E5E5E' }}>{nameDescription}</p>
                     )})}            
                     </li>
                 </div>
@@ -38,17 +38,14 @@ const Enterprise = () => {
                 {showTitles()}
                 <div>
                     <li>
-                        <h4>NEWSLETTER</h4>
-                        <Typography>Registrate para ser el primero en recibir nuestras noticias</Typography>
+                        <h4 style={{ color: '#333333' }}>NEWSLETTER</h4>
+                        <Typography style={{ color:'#5E5E5E' }}>Registrate para ser el primero en recibir nuestras noticias</Typography>
                         <button className={style.action__button}>
                             <Typography>EMAIL</Typography>
                             <ArrowForwardIosIcon/>
                         </button>
                     </li>
                 </div>
-            </div>
-            <div className={style.container__otherEnterprises}>
-                <h1>j</h1>
             </div>
         </div>
     )

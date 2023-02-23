@@ -1,0 +1,27 @@
+.firstLetter {
+    background-color: #7A4A58;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    height: 50px;
+    align-items: center;    
+}
+.secondLetter{
+    background-color: #C8C6CB;
+    color: #666666;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    justify-content: end;
+    gap: 15px
+}
+.lastLetter {
+    display: flex;
+    flex-direction: row;
+    max-height: 300px;
+
+}
+.img{
+    height: 100px;
+}
