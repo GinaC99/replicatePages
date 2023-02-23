@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 export const ProductContext = createContext();
 
 const ProductContextProvider = ({ children }) => {
-    const [dataProducts, setDataProduct] = useState({
-        data:'string',
-    });
+    const [dataProducts, setDataProduct] = useState({});
 
     return (
         <ProductContext.Provider value={{ dataProducts, setDataProduct }}>

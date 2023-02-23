@@ -19,7 +19,9 @@
 .lastLetter {
     display: flex;
     flex-direction: row;
+    max-height: 300px;
+
 }
 .img{
-    height: 35%;
+    height: 100px;
 }

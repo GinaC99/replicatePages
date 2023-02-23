@@ -12,8 +12,7 @@ import { ProductContext } from '../../context/product-contex';
 const EachProduct = ({ lowLimit, higLimit, title }) => {
     const [limitInf, setLimitInf] = useState(0)
     const [limitSup, setLimitSup] = useState(4)
-    const { dataProducts, setDataProduct } = useContext(ProductContext)
-    console.log(dataProducts)
+    const { setDataProduct } = useContext(ProductContext)
     useEffect(() => {
         setLimitInf(parseInt(lowLimit))
         setLimitSup(parseInt(higLimit))

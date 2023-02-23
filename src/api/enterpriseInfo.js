@@ -23,6 +23,6 @@ const resources = {
         'DEVOLUCIONES'
     ] 
 }
-const dataExports = { profile, resources, clientService }
+const dataExports = { clientService, profile, resources,  }
 
 export default dataExports;

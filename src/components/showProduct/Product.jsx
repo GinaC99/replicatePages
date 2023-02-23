@@ -4,40 +4,55 @@ import { useContext, useEffect, useState } from 'react';
 import { ProductContext } from './../../context/product-contex';
 import { LoremIpsum} from 'react-lorem-ipsum';
 import Typography from '@mui/material/Typography';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import infImgs from '../../api/imgs';
 
 const Product = () => {
     const { dataProducts } = useContext(ProductContext);
     const [productInf, setProductInf] = useState({})
     
     useEffect(() => {
-        console.log(dataProducts)
         if (dataProducts && Object.keys(dataProducts).length > 0)
             return setProductInf(dataProducts)
+        else setProductInf(infImgs[0])
     }, [dataProducts])
 
     const showProduct = () => {
         if (productInf) {
             const { nombre, precio, referencia, foto } = productInf;
-            console.log(productInf)
+            const randomImg = [];
+            for (let i = 0; i < 6; i++){
+                randomImg.push(<img alt={'foto-calzado'}
+                    src={infImgs[Math.floor(Math.random()*infImgs.length)].foto}
+                    style={{ height: '60px' }}
+                />)
+            }
             return (
                 <div className={style.container__infProducts}>
                     <div className={style.infoProducts__img_name}>
                         <h5>HUSHPUPPIESCO / CALZADO / {nombre}</h5>
-                        <img src={foto} alt={'foto-calzado'} />
+                        <img src={foto} alt={'foto-calzado'}  style={{ padding: '0px 20% 0px 20%'}}/>
+                        <div className={style.container_randomImgs}>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'start',gap: '5px'}}>
+                            {randomImg.map((media) => media)}
+                        </div>
                     </div>
+                    <div/>
                     <div>
-                        <h3>{nombre}</h3>
+                        <h3 style={{ color: '#666666', fontWeight: 'bold', fontSize: '20px', marginBottom:'0px'}}>
+                            {nombre && nombre.toUpperCase()}</h3>
                         <Typography variant="body1" className={style.price__products__infProduct}>
-                        $ {precio}
+                        ${precio}
                         </Typography>
                         <Typography variant="body1" className={style.infProduct__ref}>
                         Cod. de productos {referencia}
                         </Typography>
-                        <h5>COLOR</h5>
+                        <h5 style={{ marginBottom: '0px'}}>COLOR</h5>
                         <img src={foto} alt={'foto-calzado'} className={style.img_Productss}/>
-                        <h5>TALLA</h5>
                         <div className={style.containerAllNumbers}>
-                            <div style={{ gap: '10px' }}>
+                                <h5 style={{ margin: '5px 0px 0px 0px'}}>TALLA</h5>
+                            <div style={{ paddingBottom: '1px', marginTop: '0px'}}>
                                 <div className={style.NumberShow} onClick={() => {
                                     alert('Se encuentra disponible')
                                 }}>5</div>
@@ -46,7 +61,7 @@ const Product = () => {
                                 <div className={style.NumberShow}>6.5</div>
                                 <div className={style.NumberShow}>7</div>
                             </div>
-                            <div style={{ gap: '10px' }}>
+                            <div style={{ paddingTop: '5px'}}>
                                 <div className={style.NumberShow}>7.5</div>
                                 <div className={style.NumberShow}>8</div>
                                 <div className={style.NumberShow}>8.5</div>
@@ -55,8 +70,12 @@ const Product = () => {
                             </div>
                         </div>
                         <h6>GUIA DE TALLAS</h6>
-                        <button>AÑADIR AL CARRITO</button>
-                        <button>icon</button>
+                        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+                            <button className={style.styleButton}>AÑADIR AL CARRITO</button>
+                            <button style={{ background: 'transparent', borderColor: 'transparent'}}>
+                                <FavoriteIcon style={{ color: '#D1D1D0', fontSize: '20px'}}/>
+                            </button>
+                        </div>
                     </div>
                 </div>
             )
